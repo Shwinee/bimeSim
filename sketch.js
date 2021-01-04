@@ -33,7 +33,7 @@ function creture(){
   //logic vars
   this.x = 500;
   this.y = 500;
-  this.food = 100;
+  this.food = 300;
   this.alive = true;
   this.framesEating = 0;
   this.happyness = 0;
@@ -43,7 +43,7 @@ function creture(){
 
   //the speed is... the speed.
   //this can be mutated
-  this.speed = 0.06;
+  this.speed = 0.05;
   //the dna is the direction the creture needs to go every frame.
   //this can be mutated.
   this.dnax = [];
@@ -156,6 +156,8 @@ function draw() {
     speedPool = [];
     date = 0;
     timeOfFirstHit = 0;
+
+    //evaluatetion
     for (var i = 0; i < population.length; i++){
       for (var x = 0; x < population[i].lifespan; x++){
         speedPool.push(population[i].speed);
@@ -166,7 +168,7 @@ function draw() {
 
     //make every creture come back to life
     for (var i = 0; i < population.length; i++) {
-      population[i].food = 100;
+      population[i].food = 300;
       population[i].x = 500;
       population[i].y = 500;
       population[i].alive = true;
@@ -213,9 +215,13 @@ function draw() {
       population[i].lifespan++;
     }
   }
+  /*
+    PHYSICS
+    Every creture needs to move in the direction acording to the dna in that creture
+    BUT because of the formula i am using for movement i need to cap the MAX speed because of... math
 
-  //MOVEMENT
-  //Every creture needs to move in the direction acording to the dna in that creture
+
+  */
   for (var i = 0; i < population.length; i++) {
     if (population[i].alive == true){
       if (population[i].x != population[i].dnax[date]){
@@ -226,6 +232,8 @@ function draw() {
       }
     }
   }
+
+
   textSize(40);
   if (timeOfFirstHit != 0){
     fill(2*timeOfFirstHit, 0, 0);
