@@ -136,7 +136,6 @@ function draw() {
     }
   }
   if (date >= dpe){
-    numberSurvived = 0;
     //there has been a full evoultion.
     evoultions++;
     var evedata = [];
@@ -145,6 +144,7 @@ function draw() {
     evedata.push("number of survivers: "+ numberSurvived);
     evedata.push("first hit: "+timeOfFirstHit);
     evoultionData.push(evedata);
+    numberSurvived = 0;
 
     // console.log("--------------------------------------");
     // console.log("Done! evoultion number: "+ evoultions);
@@ -157,7 +157,7 @@ function draw() {
     date = 0;
     timeOfFirstHit = 0;
     for (var i = 0; i < population.length; i++){
-      for (var x = 0; x < population[i].lifespan + population[i].framesEating; x++){
+      for (var x = 0; x < population[i].lifespan; x++){
         speedPool.push(population[i].speed);
         dnaxPool.push(population[i].dnax);
         dnayPool.push(population[i].dnay);
