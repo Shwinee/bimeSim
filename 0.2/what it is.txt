@@ -1,0 +1,9 @@
+Now we are using a Neural Network instead of just random x and y values for DNA
+
+
+every X days their is a new ere, it runs the newPopulation(); function /* found in ga.js */
+This function adds the good DNA to the DNA pool more than bad so that when we randomly pick from the DNA there is a
+higher chance for the DNA to be good.
+
+
+//also made the collisions system MUCH better and made a new obstacle object
